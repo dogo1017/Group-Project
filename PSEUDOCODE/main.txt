@@ -1,15 +1,12 @@
 # Main run file. Holds the user interface
-#from attribute_manager import attribute_manager 
-import os
-import msvcrt
-from skill_manager import skill_menu
 
+Define a function that will make the menu pretty
 def menu(options):
     index = 0
     while True:
         os.system('cls')
         for i, option in enumerate(options):
-            prefix = "> " if i == index else "  "
+            prefix = "- " if i == index else "  "
             print(prefix + option)
         key = msvcrt.getch()
         if key in (b'\x00', b'\xe0'):
@@ -19,18 +16,23 @@ def menu(options):
         elif key == b"P":
             index = (index + 1) % len(options)
         elif key == b"\r":
-            return index        
+            return index
+
 
 def add():
     print("you have entered the add function") #Joseph
     input("Press Enter to continue...")
 
+def skills():
+    print("you have entered the skill managment function") #Douglas
+    input("Press Enter to continue...")
+
 def inventory():
-    print("you have entered the inventory management function") #Govenor
+    print("you have entered the inventory managment function") #Govenor
     input("Press Enter to continue...")
 
 def attributes():
-    print("you have entered the attribute management function") #Darin
+    print("you have entered the attribute managment function") #Darin
     input("Press Enter to continue...")
 
 def search():
@@ -46,7 +48,7 @@ def main():
             add()
         elif choice == 1:
             if selected_character != "":
-                skill_menu()
+                skills()
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
@@ -69,5 +71,3 @@ def main():
             selected_character = search()
 
 main()
-
-#josphen DOLBYAOB
