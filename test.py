@@ -1,6 +1,7 @@
 import os
 import msvcrt
 
+"""
 def menu(options):
     desc = []
     index = 0
@@ -34,4 +35,40 @@ def menu(options):
             if index == 0:
                 desc.append(key.decode('utf-8'))
 
-menu(["one", "two"])
+menu(["one", "two"])"""
+
+def menu2(options, writable):
+    desc = []
+    for i in writable:
+        desc.append([])
+    index = 0
+    while True:
+        os.system('cls')
+        for i, option in enumerate(options):
+            prefix = "> " if i == index else "  " 
+            if i in writable:
+                print(f"{prefix}{option}: {''.join(desc[i])}")
+            else:
+                print(f"{prefix}{option}")
+
+        key = msvcrt.getch()
+
+        if key in (b'\x00', b'\xe0'):
+            key = msvcrt.getch()
+            if key == b'H': 
+                index = (index - 1) % len(options)
+            elif key == b'P':
+                index = (index + 1) % len(options)
+        elif key == b'\r':
+            if index in writable:
+                pass 
+            else:
+                return index
+        elif key == b'\b':
+            if index in writable and desc[index]:
+                desc[index].pop()
+        else:
+            if index in writable:
+                desc[index].append(key.decode('utf-8'))
+
+menu2(["description", "effect", "target", "return"], [0,1,2])
