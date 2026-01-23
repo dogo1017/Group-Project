@@ -40,7 +40,13 @@ define main function that controls the options between all files (no parameters)
             - call attribute_manager
         - if there isn't
             - return back to options
+    - else if choice is compare
+        - check if there is a selected character
+        - if there is
+            - call search with compare parameter = True
+        - if there isn't
+            - return back to options
     - else
-        - call search
+        - call search with compare parameter = False
 
 call main
