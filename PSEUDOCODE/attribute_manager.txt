@@ -1,3 +1,4 @@
+douglas
 Define attribute management function with parameters charcters and selected character:
     - use menu from main to ask to select a desired attribute to modify or return to the main function
     - use menu to ask if they are sure, if no then ask if they want to manage their attributes again(ig yrs then restart character management function, if no return to main function)

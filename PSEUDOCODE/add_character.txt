@@ -1,3 +1,4 @@
+joseph
 def add_menu function with parameter characters
 - set new_character to a dictionary with all their changeable stuff
 - set new_character's name to user input

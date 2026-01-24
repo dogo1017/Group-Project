@@ -1,3 +1,4 @@
+joseph
 define search_menu function with parameters characters, selected_character, compare
 - if compare = True
     - call compare function
