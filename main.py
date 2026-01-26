@@ -2,7 +2,7 @@
 import os
 import msvcrt
 import add_character
-import attribute_manager
+#import attribute_manager
 import inventory_manager
 import search
 import skill_manager
