@@ -1,24 +1,18 @@
-
-define function to add inventory to selected character:
-    - use menu function from main to choose between adding an existing inventory, new one, or return
-    - if return chosen:
-        - return to start of inventory management function
-    - if existing inventory option is chosen:
-        - access dictionary with saved inventory named 'saved_inventorys'
-        - print all saved inventory from saved_inventory dictionary
-        - use menu function form main to ask which inventory to add or return
-        - if return chosen then return to start of inventory managing function
-        - if inventory selected then add inventory to character inventorys in the characters main attribute list
-        - return to start of inventory managing function
-    - if new inventory option is chosen:
-        - let user input name(Save inventory name temporarily) with option to return(go back to start of inventory managment function)
-        - let user input description(Save inventory description temporarily) with option to return(go back to start of inventory managment function)
-        - let user input effect(Save inventory effect temporarily) with option to return(go back to start of inventory managment function)
-        - let user input target(Save inventory target temporarily) with option to return(go back to start of inventory managment function)
-        - save inventory to dictionary saved_inventorys and apply to character
-        - return to start of inventory management function
-define function to remove inventory from a character:
-    - Use menu function from main to choose between all characters inventorys and return(which returns to inventory managment function)
-    - remove selected inventory from character stats
-define inventory_managment function:
-    - use menu function from main to choose between adding inventory (run add_inventory function), removing inventory(run remove_inventory), or return(retrn to main character management)
+gov
+define function add_menu with a selected_character as a parameter:
+    - forever loop
+        - use menu function from main to choose between adding items to inventory, removing items from inventory, or return
+        - if return chosen:
+            - return back to main function by breaking
+        - if add chosen:
+            - display inventory of character previously chosen (e.g. "Your character already has in their inventory: blah, blah, blah...")
+            - display options to add (e.g. "Available inventory additions: blah, blah, blah...")
+                - each option should also have their stats (e.g. weight, effects, value, etc.)
+            - after each addition to inventory, display message confirming addition (e.g. "Something has now been added to your inventory...")
+            - also give option to just return to back to beginning of inventory management function
+        if remove chosen:
+            - display inventory of character previously chosen (e.g. "Your character already has in their inventory: blah, blah, blah...")
+            - take user input of whatever they're tryna remove
+                - each option should also have their stats (e.g. weight, effects, value, etc.)
+            - after each addition to inventory, display message confirming addition (e.g. "Something has now been removed from your inventory...")
+            - also give option to just return to back to beginning of inventory management function

@@ -1,0 +1,1 @@
+            print(f"Current Text: {''.join(desc)}") 
