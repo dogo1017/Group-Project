@@ -2,7 +2,7 @@
 import os
 import msvcrt
 import add_character
-#import attribute_manager
+import attribute_manager
 import inventory_manager
 import search
 import skill_manager
@@ -25,7 +25,10 @@ def menu(options):
             return index        
 
 def main():
+    selected_character = ""
     options = ["Add Character", "Manage Skills", "Manage Inventory", "Manage Attributes", "Search for Character"]
+    characters = []
+    #add_character.add_menu
     while True:
         choice = menu(options)
         if choice == 0:
@@ -52,7 +55,6 @@ def main():
                 input("Press Enter to continue...")
                 continue
         else:
-            selected_character = search.search_menu()
+            selected_character = search.search_menu(characters, selected_character, comp=False)
 
-selected_character = ""
 main()

@@ -1,8 +1,8 @@
 def search_menu(characters, selected_character, comp):
     if comp == True:
-        compare(selected_character)
+        compare(selected_character, characters)
     else:
-        search(comp=False)
+        search(characters=characters, comp=False)
 
 def compare(selected_character, characters):
     compare_character = search(characters=characters, comp=True)
@@ -23,7 +23,7 @@ def search(comp, characters):
             count += 1   
     if count == 0:
         print("No character was found.")
-        again = input("Whould you like to repeat the search")
+        again = input("Whould you like to repeat the search? ")
         if again == "yes":    
             search(comp, characters)
         else:
