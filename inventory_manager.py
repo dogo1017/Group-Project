@@ -14,14 +14,14 @@ def main():
             if selected_character == "":
                 remove_items()
             else:
-                print("Please select a character before entering this function.")
+                print("Please select a character before entering this function👍.")
                 input("Press Enter to continue...")
                 continue
         elif choice == 2:
             if selected_character != "":
                 menu()
             else:
-                print("Please select a character before entering this function.")
+                print("Please select a character before entering this function👍.")
                 input("Press Enter to continue...")
                 continue
         else:
@@ -34,7 +34,7 @@ main()
 def choice():
     # use menu function from main to choose between adding an existing inventory, new one, or return
 
-    option = input("Do you want to add or remove an item from your inventory? Or do you want to return to the menu?: ")
+    option = input("Do you want to add or remove an item from your inventory? Or do you want to return to the menu?👍: ")
     # if return chosen:
         # return to start of inventory management function
     # if existing inventory option is chosen:
