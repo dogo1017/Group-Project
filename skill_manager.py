@@ -11,5 +11,4 @@ def skill_menu():
         add_skill()
     elif choice == 2:
         remove_skill()
-
     
