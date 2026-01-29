@@ -1,5 +1,4 @@
 from menu import menu
-
 saved_skills = {
     "Fireball": {"description": "Shoots a fireball", "effect": "Attack", "amount": 50, "target": "Enemy"},
     "Heal": {"description": "Restores health", "effect": "Health", "amount": 30, "target": "Self"},
@@ -94,7 +93,6 @@ def add_skill(existing_skills):
                 print("Skill name cannot be empty!")
             input("Press Enter to continue...")
         return
-
 def remove_skill():
     if not example_character["skills"]:
         print("No skills to remove!")
@@ -136,5 +134,3 @@ def skill_menu():
             input("\nPress Enter to continue...")
         else:
             skill_manage = 0
-
-skill_menu()
