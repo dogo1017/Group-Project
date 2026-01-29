@@ -15,7 +15,7 @@ def main():
     characters = [{"name": "example character 1", "class": "rogue", "level": 15, "race": "Elf", "attributes": [], "skills": {}, "inventory": [], "stats": {}}]
     while True:
         choice = menu(options)
-        if choice == 0:
+        if choice.get('index') == 0:
             characters = add_character.add_menu(characters, classes, races, items)
         elif choice == 1:
             if selected_character == "":
