@@ -44,7 +44,7 @@ def main():
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
-                continue
+                continue  
         elif choice == 2:
             if selected_character != "":
                 characters, selected_character = inventory_manager.inventory_menu(characters, selected_character)
