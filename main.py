@@ -1,28 +1,10 @@
 # Main run file. Holds the user interface
-import os
-import msvcrt
 import add_character
 import attribute_manager
 import inventory_manager
 import search_compare
 import skill_manager
-
-def menu(options):
-    index = 0
-    while True:
-        os.system('cls')
-        for i, option in enumerate(options):
-            prefix = "> " if i == index else "  "
-            print(prefix + option)
-        key = msvcrt.getch()
-        if key in (b'\x00', b'\xe0'):
-            key = msvcrt.getch()
-        if key == b"H":
-            index = (index - 1) % len(options)
-        elif key == b"P":
-            index = (index + 1) % len(options)
-        elif key == b"\r":
-            return index        
+from menu import menu    
 
 def main():
     selected_character = ""

@@ -1,9 +1,6 @@
-import os
-import msvcrt
-
-
-
 def menu(options, **mod):
+    import os
+    import msvcrt   
     number = mod.get('number', [])
     writable = mod.get('writable', [])
     toggle = mod.get('toggle', [])
