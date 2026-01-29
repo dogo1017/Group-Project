@@ -109,13 +109,16 @@ def remove_skill():
         print(f"Removed {removed_skill} from character!")
         input("Press Enter to continue...")
 
-def skill_menu():
+def skill_menu(saved_skills, characters, selected_character):
     skill_manage = 1
     while skill_manage == 1:
         result = menu(["Add Skill", "Remove Skill", "View Character Skills", "Return"])
         selected_index = result['index']
         if selected_index == 0:
-            add_skill(example_character["skills"])
+            for i in characters:
+                if selected_character in characters[i]:
+                    skill_index = i
+            add_skill(characters[i])
         elif selected_index == 1:
             remove_skill()
         elif selected_index == 2:
