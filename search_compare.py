@@ -1,8 +1,4 @@
-def search_menu(characters, selected_character, comp):
-    if comp == True:
-        compare(selected_character, characters)
-    else:
-        search(characters=characters, comp=False)
+from menu import menu
 
 def compare(selected_character, characters):
     compare_character = search(characters=characters, comp=True)
@@ -36,6 +32,12 @@ def search(comp, characters):
         else:
             selected_character = pulled[choice-1]
             return selected_character
+
+def search_menu(characters, selected_character, comp):
+    if comp == True:
+        compare(selected_character, characters)
+    else:
+        search(characters=characters, comp=False)
 
 #define search_menu function with parameters characters, selected_character, compare
 #- if compare = True
