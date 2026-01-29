@@ -4,43 +4,8 @@
 
 #from main import menu
 
-<<<<<<< HEAD
-def main():
-    options = ["Add items", "Remove items", "Return to Menu"]
-    while True:
-        choice = menu(options)
-        if choice == 0:
-            add_items()
-        elif choice == 1:
-            if selected_character == "":
-                remove_items()
-            else:
-                print("Please select a character before entering this function👍.")
-                input("Press Enter to continue...")
-                continue
-        elif choice == 2:
-            if selected_character != "":
-                menu()
-            else:
-                print("Please select a character before entering this function👍.")
-                input("Press Enter to continue...")
-                continue
-        else:
-            selected_character = search.search_menu()
-=======
->>>>>>> e8914aceb20572db6a32c4eb3f0126c96bb9f9a4
-
-
-
-<<<<<<< HEAD
-    option = input("Do you want to add or remove an item from your inventory? Or do you want to return to the menu?👍: ")
-    # if return chosen:
-        # return to start of inventory management function
-    # if existing inventory option is chosen:
-=======
 def add_items():
    # characters[selected_character][inventory]
->>>>>>> e8914aceb20572db6a32c4eb3f0126c96bb9f9a4
         # access dictionary with saved inventory named 'saved_inventorys'
 
         # print all saved inventory from saved_inventory dictionary
@@ -76,5 +41,3 @@ def inventory_menu(characters, selected_character):
             remove_items(characters, selected_character)
         elif choice == 2:
             return characters, selected_character
-
-inventory_menu("John", "Potatoe")
