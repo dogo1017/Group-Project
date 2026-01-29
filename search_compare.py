@@ -6,7 +6,7 @@ def compare(selected_character, characters):
     while True:
         exit = input("Would you like to return? ").strip().lower()
         if exit == "yes" or exit == "y":
-            return
+            return characters, selected_character
 
 def search(comp, characters):
     keyword = input("What would you like to search for: ")
@@ -19,7 +19,7 @@ def search(comp, characters):
             count += 1   
     if count == 0:
         print("No character was found.")
-        again = input("Whould you like to repeat the search? ")
+        again = input("Would you like to repeat the search? ")
         if again == "yes":    
             search(comp, characters)
         else:
@@ -31,13 +31,14 @@ def search(comp, characters):
             return compare_character
         else:
             selected_character = pulled[choice-1]
-            return selected_character
+            return selected_character, characters
 
 def search_menu(characters, selected_character, comp):
     if comp == True:
-        compare(selected_character, characters)
+        characters, selected_character = compare(selected_character, characters)
     else:
-        search(characters=characters, comp=False)
+        characters, selected_character = search(characters=characters, comp=False)
+    return characters, selected_character
 
 #define search_menu function with parameters characters, selected_character, compare
 #- if compare = True
