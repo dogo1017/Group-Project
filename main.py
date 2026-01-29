@@ -5,7 +5,7 @@ import inventory_manager
 import search_compare
 import skill_manager
 from menu import menu    
-
+import time
 
 def main():
     selected_character = ""
