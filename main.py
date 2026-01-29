@@ -19,30 +19,30 @@ def main():
 
     while True:
         choice = menu(options)
-        if choice == 0:
+        if choice.get('index') == 0:
             characters = add_character.add_menu(characters, classes, races, items)
-        elif choice == 1:
+        elif choice.get('index') == 1:
             if selected_character == "":
                 characters, selected_character = skill_manager.skill_menu(characters, selected_character)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue  
-        elif choice == 2:
+        elif choice.get('index') == 2:
             if selected_character != "":
                 characters, selected_character = inventory_manager.inventory_menu(characters, selected_character)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue
-        elif choice == 3:
+        elif choice.get('index') == 3:
             if selected_character != "":
                 characters, selected_character = attribute_manager.attribute_menu(characters, selected_character)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue
-        elif choice == 4:
+        elif choice.get('index') == 4:
             if selected_character != "":
                 characters, selected_character = search_compare.search_menu(characters, selected_character, comp=True)
             else:
