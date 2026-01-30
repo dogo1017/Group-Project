@@ -5,6 +5,7 @@ import inventory_manager
 import search_compare
 import skill_manager
 from menu import menu    
+import time
 
 def main():
     selected_character = "example character 1"
@@ -32,7 +33,7 @@ def main():
                 continue  
         elif choice.get('index') == 2:
             if selected_character != "":
-                characters, selected_character = inventory_manager.inventory_menu(characters, selected_character)
+                characters, selected_character = inventory_manager.inventory_menu(items, characters, selected_character)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
@@ -51,9 +52,7 @@ def main():
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue
-        elif choice.get('index') == 5:
-            characters, selected_character = search_compare.search_menu(characters, selected_character, comp=False)
         else:
-            print("ERROR")
+            characters, selected_character = search_compare.search_menu(characters, selected_character, comp=False)
         #UPDATE ALL CHARACTER STATS AFTER EVERY CHANGE
 main()
