@@ -17,35 +17,37 @@ def main():
         choice = menu(options)
         if choice.get('index') == 0:
             characters = add_character.add_menu(characters, classes, races, items)
-        elif choice == 1:
+        elif choice.get('index') == 1:
             if selected_character == "":
                 characters, selected_character = skill_manager.skill_menu(characters, selected_character)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue  
-        elif choice == 2:
+        elif choice.get('index') == 2:
             if selected_character != "":
                 characters, selected_character = inventory_manager.inventory_menu(characters, selected_character)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue
-        elif choice == 3:
+        elif choice.get('index') == 3:
             if selected_character != "":
                 characters, selected_character = attribute_manager.attribute_menu(characters, selected_character)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue
-        elif choice == 4:
+        elif choice.get('index') == 4:
             if selected_character != "":
                 characters, selected_character = search_compare.search_menu(characters, selected_character, comp=True)
             else:
                 print("Please select a character before entering this function.")
                 input("Press Enter to continue...")
                 continue
-        else:
+        elif choice.get('index') == 5:
             characters, selected_character = search_compare.search_menu(characters, selected_character, comp=False)
+        else:
+            print("ERROR")
         #UPDATE ALL CHARACTER STATS AFTER EVERY CHANGE
 main()
