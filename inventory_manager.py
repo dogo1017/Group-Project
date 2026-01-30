@@ -31,7 +31,7 @@ def add_items(characters, selected_character):
         # if inventory selected then add inventory to character inventorys in the characters main attribute list
     if item_choice in saved_inventorys:
         characters[selected_character]["inventory"].append(saved_inventorys[item_choice])
-        print(f"{} added to inventory.")
+        print("added to inventory.")
 
         # return to start of inventory managing function
         return
