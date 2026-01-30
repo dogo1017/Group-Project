@@ -6,6 +6,7 @@ saved_inventorys = {}
 
 from menu import menu
 
+
 # SIMPLE MENU FUNCTION (so the file runs without external imports)
 #def menu(options):
  #   for i, option in enumerate(options):
@@ -90,53 +91,44 @@ def remove_items(characters, selected_character):
     return
 
 # define function to remove inventory from a character:
-def remove_inventory_from_character(characters, selected_character):
-    # Use menu function from main to choose between all characters inventorys and return(which returns to inventory managment function)
-    if "inventory" not in characters[selected_character] or len(characters[selected_character]["inventory"]) == 0:
-        print("No inventory to remove.")
-        return
+#def remove_inventory_from_character(characters, selected_character):
+    # use menu function from main to choose between all characters inventorys and return(which returns to inventory managment function)
+  #  if "inventory" not in characters[selected_character] or len(characters[selected_character]["inventory"]) == 0:
+ #       print("No inventory to remove.")
+      #  return
 
-    options = [str(item) for item in characters[selected_character]["inventory"]]
-    options.append("Return")
+  #  options = [str(item) for item in characters[selected_character]["inventory"]]
+ #   options.append("Return")
 
-    choice = menu(options)
+ #   choice = menu(options)
 
-    if choice == len(options) - 1:
-        return
+ #   if choice == len(options) - 1:
+   #     return
 
     # remove selected inventory from character stats
-    removed = characters[selected_character]["inventory"].pop(choice)
-    print(f"Removed {removed}")
+ #   removed = characters[selected_character]["inventory"].pop(choice)
+ #   print(f"Removed {removed}")
 
 # define inventory_managment function:
-def inventory_managment(characters, selected_character):
+#def inventory_managment(characters, selected_character):
     # use menu function from main to choose between adding inventory (run add_inventory function), removing inventory(run remove_inventory), or return(retrn to main character management)
-    options = ["Add inventory", "Remove inventory", "Return"]
-    while True:
-        choice = menu(options)
-        if choice == 0:
-            add_items(characters, selected_character)
-        elif choice == 1:
-            remove_inventory_from_character(characters, selected_character)
-        elif choice == 2:
-            return
+   # options = ["Add inventory", "Remove inventory", "Return"]
+   # while True:
+    #    choice = menu(options)
+    #    if choice == 0:
+      #      add_items(characters, selected_character)
+      #  elif choice == 1:
+      #      remove_inventory_from_character(characters, selected_character)
+     #   elif choice == 2:
+     #       return
 
 def inventory_menu(characters, selected_character):
     options = ["Add items", "Remove items", "Return to Menu"]
     while True:
         choice = menu(options)
-        if choice == 0:
+        if choice.get('index') == 0:
             add_items(characters, selected_character)
-        elif choice == 1:
+        elif choice.get('index') == 1:
             remove_items(characters, selected_character)
-        elif choice == 2:
+        elif choice.get('index') == 2:
             return characters, selected_character
-
-
-characters = {
-    "Hero": {}
-}
-
-selected_character = "Hero"
-
-inventory_menu(characters, selected_character)
