@@ -2,9 +2,9 @@
 
 from menu import menu
 
-def attribute_manager(characters, selected_character):
+def attribute_menu(characters, selected_character):
     while True:
-        attribute_options = list(characters[selected_character].keys()) + ["Return to Main"]
+        attribute_options = list(selected_character.keys()) + ["Return to Main"]
         attribute_choice = menu(f"Select attribute to modify for {selected_character}:", attribute_options)
         if attribute_choice == "Return to Main":
             return
@@ -29,7 +29,7 @@ def attribute_manager(characters, selected_character):
                 else:
                     new_value = new_value_input
                 break
-            except ValueError:
+            except:
                 print(f"Invalid input. Please enter {'an integer' if isinstance(current_value, int) else 'a number' if isinstance(current_value, float) else 'a value'}.")
         confirm_change = menu(f"Change {attribute_choice} from {current_value} to {new_value}?", ["Yes", "No"])
         if confirm_change == "No":
