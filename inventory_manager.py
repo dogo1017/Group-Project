@@ -119,3 +119,4 @@ def inventory_menu(characters, selected_character):
             remove_items(characters, selected_character)
         elif choice == 2:
             return characters, selected_character
+
