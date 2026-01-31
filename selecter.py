@@ -1,9 +1,7 @@
-
 def search(characters, compare):
     keyword = input("What would you like to search for: ").strip().lower()
     pulled = []
     for character in characters:
-        # search through all values in the dictionary
         if any(keyword in str(value).lower() for value in character.values()):
             pulled.append(character)
             print(f"{len(pulled)}. {character['name']}")
