@@ -1,4 +1,4 @@
-def bubble(string, width=100):
+def bubble(string, width=100, speed=.04):
     import time
     import sys
     import textwrap
@@ -15,7 +15,7 @@ def bubble(string, width=100):
         for char in line:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(0.04)
+            time.sleep(speed)
         sys.stdout.write("\n")
     sys.stdout.write("\033[1B\r") 
     input("Press Enter to continue...")

@@ -27,7 +27,7 @@ def search(characters, compare):
     else:
         return selected, characters
 
-def search_menu(characters, selected_character, comp):
+def search_menu(characters, selected_character):
     import os
     os.system('cls')
     selected_character, characters = search(characters, compare=False)
