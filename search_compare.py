@@ -6,7 +6,7 @@ def compare(selected_character, characters):
     while True:
         exit_choice = input("Would you like to return? (y/n): ").strip().lower()
         if exit_choice in ("yes", "y"):
-            return characters, selected_character
+            return selected_character, characters
 
 
 def search(characters, boolean):
@@ -31,6 +31,7 @@ def search(characters, boolean):
         except :
             print("Invalid choice. Try again.")
     print("You have selected a character. ")
+    input("Press Enter to continue...")
     if boolean:
         return selected
     else:
@@ -40,9 +41,7 @@ def search_menu(characters, selected_character, comp):
     import os
     os.system('cls')
     if comp:
-        characters, selected_character = compare(selected_character, characters)
+        selected_character, characters = compare(selected_character, characters)
     else:
-        result = search(characters, boolean=False)
-        if result:
-            selected_character, characters = result
+        selected_character, characters = search(characters, boolean=False)
     return characters, selected_character
