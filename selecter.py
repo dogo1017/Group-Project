@@ -1,4 +1,4 @@
-def search(characters, compare):
+def selecter(characters, compare):
     keyword = input("What would you like to search for: ").strip().lower()
     pulled = []
     for character in characters:
@@ -9,7 +9,7 @@ def search(characters, compare):
         print("No character was found.")
         again = input("Would you like to repeat the search? (y/n): ").strip().lower()
         if again in ("yes", "y"):
-            return search(characters, compare)
+            return selecter(characters, compare)
         return None
     while True:
         try:
@@ -25,8 +25,8 @@ def search(characters, compare):
     else:
         return selected, characters
 
-def search_menu(characters, selected_character):
+def selecter_menu(characters, selected_character):
     import os
     os.system('cls')
-    selected_character, characters = search(characters, compare=False)
+    selected_character, characters = selecter(characters, compare=False)
     return characters, selected_character
