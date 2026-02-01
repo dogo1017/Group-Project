@@ -16,34 +16,17 @@ def main():
     classes = [{"name": "rogue", "dmg": 1.2, "dex": 1.5, "int": 1.1, "con": 0.9, "cha": 1.2}, {"name": "warrior", "dmg": 1.5, "dex": 0.9, "int": 0.8, "con": 1.4, "cha": 1.0}, {"name": "mage", "dmg": 1.3, "dex": 0.8, "int": 1.6, "con": 0.7, "cha": 1.1}, {"name": "paladin", "dmg": 1.2, "dex": 0.9, "int": 1.0, "con": 1.3, "cha": 1.4 }, {"name": "ranger", "dmg": 1.3, "dex": 1.4, "int": 1.0, "con": 1.0, "cha": 1.0 }, {"name": "bard", "dmg": 0.9, "dex": 1.1, "int": 1.2, "con": 0.9, "cha": 1.6}, {"name": "tank", "dmg": 0.9, "dex": 0.7, "int": 0.8, "con": 1.7, "cha": 0.9}]
     races = [{"name": "Human", "dmg": 1.0, "dex": 1.0, "int": 1.0, "con": 1.0, "cha": 1.0}, {"name": "Elf", "dmg": 0.9, "dex": 1.2, "int": 1.1, "con": 0.9, "cha": 1.1}, {"name": "Ork", "dmg": 1.3, "dex": 0.8, "int": 0.7, "con": 1.2, "cha": 0.8}, {"name": "Dwarf", "dmg": 1.1, "dex": 0.8, "int": 0.9, "con": 1.3, "cha": 0.9}, {"name": "Halfling", "dmg": 0.8, "dex": 1.3, "int": 1.0, "con": 0.9, "cha": 1.2}]
     items = [{"name": "Iron Sword", "dmg": 1.2}, {"name": "Dagger", "dex": 1.3}, {"name": "Wizard Staff", "int": 1.4}, {"name": "Heavy Armor", "con": 1.5}, {"name": "Silver Amulet", "cha": 1.3}]
-    characters = ({
-        "name": "example character 1 (default)", 
+    characters = [{
+        "name": "example character 1", 
         "class": "rogue", 
-        "level": 1, 
-        "race": "Human", 
+        "level": 15, 
+        "race": "Elf", 
         "attributes": [], 
         "base_attributes": [5, 5, 5, 5, 5],
-        "skills": {}, 
-        "inventory": []},
-     {
-        "name": "example character 2", 
-        "class": "warrior", 
-        "level": 10, 
-        "race": "Ork", 
-        "attributes": [], 
-        "base_attributes": [8, 4, 3, 7, 4],
-        "skills": {"Fireball"}, 
-        "inventory": ["Iron Sword", "Heavy Armor"]},
-    {
-        "name": "example character 3", 
-        "class": "mage", 
-        "level": 20, 
-        "race": "Human", 
-        "attributes": [], 
-        "base_attributes": [3, 5, 9, 4, 6],
-        "skills": {"Heal", "Shield"}, 
-        "inventory": ["Wizard Staff", "Silver Amulet"]}
-    )
+        "skills": set(),
+        "skill_levels": {},
+        "inventory": []
+    }]
 
     saved_skills = skill_manager.initialize_default_skills()
     while True:
