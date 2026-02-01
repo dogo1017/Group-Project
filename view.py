@@ -2,7 +2,10 @@ def view_menu(characters, selected_character, classes, races, items):
     import selecter
     import os
 
-    labels = ["Damage", "Dexterity", "Intelligence", "Constitution", "Charisma"]
+    def apply_multipliers(attributes, source):
+        for i, key in enumerate(["dmg", "dex", "int", "con", "cha"]):
+            if key in source:
+                attributes[i] *= source[key]
 
     chosen_names = [selected_character]
 
@@ -32,33 +35,21 @@ def view_menu(characters, selected_character, classes, races, items):
 
     chosen = [next(c for c in characters if c["name"] == name) for name in chosen_names]
 
-    # Recalculate attributes before displaying
     for c in chosen:
         c["attributes"] = c["base_attributes"].copy()
-
-        race_data = next((r for r in races if r["name"] == c["race"]), None)
-        class_data = next((cl for cl in classes if cl["name"] == c["class"]), None)
 
         for item_name in c["inventory"]:
             item = next((i for i in items if i["name"] == item_name), None)
             if item:
-                if "dmg" in item: c["attributes"][0] *= item["dmg"]
-                if "dex" in item: c["attributes"][1] *= item["dex"]
-                if "int" in item: c["attributes"][2] *= item["int"]
-                if "con" in item: c["attributes"][3] *= item["con"]
-                if "cha" in item: c["attributes"][4] *= item["cha"]
+                apply_multipliers(c["attributes"], item)
+
+        race_data = next((r for r in races if r["name"] == c["race"]), None)
         if race_data:
-            c["attributes"][0] *= race_data["dmg"]
-            c["attributes"][1] *= race_data["dex"]
-            c["attributes"][2] *= race_data["int"]
-            c["attributes"][3] *= race_data["con"]
-            c["attributes"][4] *= race_data["cha"]
+            apply_multipliers(c["attributes"], race_data)
+
+        class_data = next((cl for cl in classes if cl["name"] == c["class"]), None)
         if class_data:
-            c["attributes"][0] *= class_data["dmg"]
-            c["attributes"][1] *= class_data["dex"]
-            c["attributes"][2] *= class_data["int"]
-            c["attributes"][3] *= class_data["con"]
-            c["attributes"][4] *= class_data["cha"]
+            apply_multipliers(c["attributes"], class_data)
 
     os.system('cls')
 
@@ -76,7 +67,7 @@ def view_menu(characters, selected_character, classes, races, items):
     print(header)
     print("-" * (15 + col_width * len(chosen)))
 
-    for i, label in enumerate(labels):
+    for i, label in enumerate(["Damage", "Dexterity", "Intelligence", "Constitution", "Charisma"]):
         row = f"{label:<15}" + "".join(f"{round(c['attributes'][i], 2):<{col_width}}" for c in chosen)
         print(row)
 
