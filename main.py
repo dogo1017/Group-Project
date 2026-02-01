@@ -16,7 +16,7 @@ def main():
     classes = [{"name": "rogue", "dmg": 1.2, "dex": 1.5, "int": 1.1, "con": 0.9, "cha": 1.2}, {"name": "warrior", "dmg": 1.5, "dex": 0.9, "int": 0.8, "con": 1.4, "cha": 1.0}, {"name": "mage", "dmg": 1.3, "dex": 0.8, "int": 1.6, "con": 0.7, "cha": 1.1}, {"name": "paladin", "dmg": 1.2, "dex": 0.9, "int": 1.0, "con": 1.3, "cha": 1.4 }, {"name": "ranger", "dmg": 1.3, "dex": 1.4, "int": 1.0, "con": 1.0, "cha": 1.0 }, {"name": "bard", "dmg": 0.9, "dex": 1.1, "int": 1.2, "con": 0.9, "cha": 1.6}, {"name": "tank", "dmg": 0.9, "dex": 0.7, "int": 0.8, "con": 1.7, "cha": 0.9}]
     races = [{"name": "Human", "dmg": 1.0, "dex": 1.0, "int": 1.0, "con": 1.0, "cha": 1.0}, {"name": "Elf", "dmg": 0.9, "dex": 1.2, "int": 1.1, "con": 0.9, "cha": 1.1}, {"name": "Ork", "dmg": 1.3, "dex": 0.8, "int": 0.7, "con": 1.2, "cha": 0.8}, {"name": "Dwarf", "dmg": 1.1, "dex": 0.8, "int": 0.9, "con": 1.3, "cha": 0.9}, {"name": "Halfling", "dmg": 0.8, "dex": 1.3, "int": 1.0, "con": 0.9, "cha": 1.2}]
     items = [{"name": "Iron Sword", "dmg": 1.2}, {"name": "Dagger", "dex": 1.3}, {"name": "Wizard Staff", "int": 1.4}, {"name": "Heavy Armor", "con": 1.5}, {"name": "Silver Amulet", "cha": 1.3}]
-    characters = [{
+    characters = ({
         "name": "example character 1 (default)", 
         "class": "rogue", 
         "level": 1, 
@@ -43,7 +43,7 @@ def main():
         "base_attributes": [3, 5, 9, 4, 6],
         "skills": {"Heal", "Shield"}, 
         "inventory": ["Wizard Staff", "Silver Amulet"]}
-    ]
+    )
     saved_skills = {
         "Fireball": {"description": "Shoots a fireball", "effect": "Attack", "amount": 50, "target": "Enemy"},
         "Heal": {"description": "Restores health", "effect": "Health", "amount": 30, "target": "Self"},
@@ -51,6 +51,7 @@ def main():
     }
     while True:
         choice = menu(options)
+        characters = list(characters)
         if choice.get('index') == 0:
             characters = add_character.add_menu(characters, classes, races, items)
         elif choice.get('index') == 1:
@@ -148,4 +149,5 @@ def main():
                 character["attributes"][2] *= class_data["int"]
                 character["attributes"][3] *= class_data["con"]
                 character["attributes"][4] *= class_data["cha"]
+        characters = tuple(characters)
 main()
