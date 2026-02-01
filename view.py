@@ -1,6 +1,6 @@
-def compare_menu(characters, selected_character):
-    import select
-    compare_character = select.search(characters, compare=True)
+def view_menu(characters, selected_character):
+    import selecter
+    compare_character = selecter.selecter(characters, compare=True)
     print(f"{compare_character['name']} vs {selected_character['name']}")
     # DO THIS
     input("Press Enter to continue...")

@@ -6,6 +6,8 @@ def skill_menu(saved_skills, characters, selected_character):
     Returns: (characters, selected_character) tuple
     """
 
+    from menu import menu
+    
     if selected_character == "":
         char_names = [char["name"] for char in characters]
         char_names.append("Return")
