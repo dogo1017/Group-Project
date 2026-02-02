@@ -3,7 +3,6 @@ def add_menu(characters, classes, races, items):
     import text
     import os
     os.system('cls')
-    text.bubble("Welcome to the Add Character Function. Here you will add the initial stats and stuff to your character. These changes are not final and can be changed later through different functions. You might need to adjust your terminal to fit all the following options.", speed= .02)
     result = menu(["Name", "Class", "Level", "Race", "Attributes", " Damage", " Dexterity", " Intellegence", " Constitution", " Charisma", "Skills", " Fireball", " Heal", " Shield", "Inventory", " Iron Sword", " Dagger", " Wizard Staff", " Heavy Armor", " Silver Amulet", "Return", "Return Without Saving"],
     number=[2, 5, 6, 7, 8, 9],
     writable=[0],
