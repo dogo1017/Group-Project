@@ -1,7 +1,7 @@
 from menu import menu
 
 def skill_menu(saved_skills, characters, selected_character):
-    """Main skill management menu"""
+    # Main skill management menu
     from menu import menu
     
     if selected_character == "":
@@ -44,7 +44,7 @@ def skill_menu(saved_skills, characters, selected_character):
 
 
 def get_character(characters, selected_character):
-    """Helper function to find character by name"""
+    # Helper function to find character by name
     for char in characters:
         if char["name"] == selected_character:
             return char
@@ -52,16 +52,16 @@ def get_character(characters, selected_character):
 
 
 def initialize_skill_levels(character):
-    """Initialize skill_levels dictionary if it doesn't exist"""
+    # Initialize skill_levels dictionary if it doesn't exist
     if "skill_levels" not in character:
         character["skill_levels"] = {}
 
 
 def initialize_default_skills():
-    """Create a comprehensive skill library with 25+ skills organized by type"""
+    # Create a comprehensive skill library with 25+ skills organized by type
     
     def create_skill(description, effect, amount, target, level_req=1, max_level=10, prerequisites=None):
-        """Inner function to create skill dictionary"""
+        # Inner function to create skill dictionary
         return {
             "description": description,
             "effect": effect,
@@ -129,7 +129,7 @@ def initialize_default_skills():
 
 
 def handle_add_skill(saved_skills, character):
-    """Handle the skill addition menu"""
+    # Handle the skill addition menu
     result = menu(["Add Existing Skill", "Edit Existing Skill", "Add New Skill", "Return"])
     result_index = result['index']
     
@@ -142,7 +142,7 @@ def handle_add_skill(saved_skills, character):
 
 
 def add_existing_skill(saved_skills, character):
-    """Add a skill from the saved skills library"""
+    # Add a skill from the saved skills library
     if not saved_skills:
         print("No saved skills available!")
         input("Press Enter to continue...")
@@ -183,10 +183,10 @@ def add_existing_skill(saved_skills, character):
 
 
 def categorize_skills(saved_skills):
-    """Categorize skills by their effect type and prerequisites"""
+    # Categorize skills by their effect type and prerequisites
     
     def get_category(skill_name, skill_info):
-        """Inner function to determine skill category"""
+        # Inner function to determine skill category
         if not skill_info.get("prerequisites"):
             return "Basic Skills"
         elif skill_info["effect"] == "Attack":
@@ -213,7 +213,7 @@ def categorize_skills(saved_skills):
 
 
 def attempt_add_skill(character, selected_skill, saved_skills):
-    """Attempt to add a skill to character with validation"""
+    # Attempt to add a skill to character with validation
     skill_info = saved_skills[selected_skill]
     
     # Check if already has skill
@@ -247,10 +247,10 @@ def attempt_add_skill(character, selected_skill, saved_skills):
 
 
 def validate_prerequisites(character, skill_info, saved_skills):
-    """Validate all prerequisites for a skill"""
+    # Validate all prerequisites for a skill
     
     def check_single_prereq(prereq):
-        """Inner function to check a single prerequisite"""
+        # Inner function to check a single prerequisite
         if prereq not in character["skills"]:
             return {"valid": False, "reason": "not_learned"}
         
@@ -286,7 +286,7 @@ def validate_prerequisites(character, skill_info, saved_skills):
 
 
 def handle_level_up_skill(saved_skills, character):
-    """Level up a skill to improve its effectiveness"""
+    # Level up a skill to improve its effectiveness
     if not character["skills"]:
         print("No skills to level up!")
         input("Press Enter to continue...")
@@ -313,10 +313,10 @@ def handle_level_up_skill(saved_skills, character):
 
 
 def perform_skill_levelup(character, skill_name, saved_skills):
-    """Perform the actual skill level up with calculations"""
+    # Perform the actual skill level up with calculations
     
     def calculate_stat_increase(base_amount, current_level):
-        """Inner function to calculate stat increase per level"""
+        # Inner function to calculate stat increase per level
         return base_amount * 0.1 * current_level
     
     current_level = character["skill_levels"].get(skill_name, 1)
@@ -348,10 +348,10 @@ def perform_skill_levelup(character, skill_name, saved_skills):
 
 
 def handle_view_skill_tree(saved_skills, character):
-    """Display available skills and their prerequisites in a tree structure"""
+    # Display available skills and their prerequisites in a tree structure
     
     def build_dependency_map():
-        """Inner function to build skill dependency relationships"""
+        # Inner function to build skill dependency relationships
         root_skills = []
         dependent_skills = {}
         
@@ -434,10 +434,10 @@ def handle_view_skill_tree(saved_skills, character):
 
 
 def display_skill_in_tree(skill_name, saved_skills, character, dependent_skills, is_last_in_category):
-    """Display a single skill in the tree with better formatting"""
+    # Display a single skill in the tree with better formatting
     
     def get_skill_status_symbol(skill_name, skill_info, character):
-        """Get the status symbol for a skill"""
+        # Get the status symbol for a skill
         if skill_name in character.get("skills", set()):
             level = character.get("skill_levels", {}).get(skill_name, 1)
             max_level = skill_info.get("max_level", 10)
@@ -483,7 +483,7 @@ def display_skill_in_tree(skill_name, saved_skills, character, dependent_skills,
 
 
 def handle_view_skills(saved_skills, character):
-    """View all of character's current skills with detailed information"""
+    # View all of character's current skills with detailed information
     import os
     os.system('cls')
     
@@ -520,7 +520,7 @@ def handle_view_skills(saved_skills, character):
 
 
 def display_owned_skill_info(saved_skills, skill_name, character, is_last):
-    """Display detailed information about a skill the character owns"""
+    # Display detailed information about a skill the character owns
     skill_info = saved_skills.get(skill_name, {})
     skill_level = character.get("skill_levels", {}).get(skill_name, 1)
     max_level = skill_info.get("max_level", 10)
@@ -554,7 +554,7 @@ def display_owned_skill_info(saved_skills, skill_name, character, is_last):
 
 
 def handle_level_up_skill(saved_skills, character):
-    """Level up a skill to improve its effectiveness"""
+    # Level up a skill to improve its effectiveness
     if not character["skills"]:
         print("No skills to level up!")
         input("Press Enter to continue...")
@@ -586,11 +586,11 @@ def handle_level_up_skill(saved_skills, character):
 
 
 def perform_skill_levelup(character, skill_name, saved_skills):
-    """Perform the actual skill level up with calculations"""
+    # Perform the actual skill level up with calculations
     import os
     
     def calculate_stat_increase(base_amount, current_level):
-        """Inner function to calculate stat increase per level"""
+        # Inner function to calculate stat increase per level
         return base_amount * 0.1 * current_level
     
     current_level = character["skill_levels"].get(skill_name, 1)
@@ -627,10 +627,10 @@ def perform_skill_levelup(character, skill_name, saved_skills):
 
 
 def display_skill_node(skill_name, saved_skills, character, dependent_skills, indent=0):
-    """Recursively display a skill and its dependents"""
+    # Recursively display a skill and its dependents
     
     def get_skill_status(skill_name, skill_info, character):
-        """Inner function to determine skill status symbol"""
+        # Inner function to determine skill status symbol
         if skill_name in character.get("skills", set()):
             return "✓", f" [Lv {character.get('skill_levels', {}).get(skill_name, 1)}]"
         
@@ -666,7 +666,7 @@ def display_skill_node(skill_name, saved_skills, character, dependent_skills, in
 
 
 def edit_existing_skill(saved_skills, character):
-    """Edit an existing skill in the character's skill list"""
+    # Edit an existing skill in the character's skill list
     if not character["skills"]:
         print("No skills to edit!")
         input("Press Enter to continue...")
@@ -687,7 +687,7 @@ def edit_existing_skill(saved_skills, character):
 
 
 def get_skill_data_from_menu(skill_info=None):
-    """Get skill data with prerequisites and level requirements"""
+    # Get skill data with prerequisites and level requirements
     if skill_info is None:
         skill_info = {}
     
@@ -704,7 +704,7 @@ def get_skill_data_from_menu(skill_info=None):
 
 
 def update_skill(saved_skills, character, skill_to_edit, skill_info, skill_data):
-    """Update a skill's properties"""
+    # Update a skill's properties
     new_name = ''.join(skill_data['writable'][0]) or skill_to_edit
     new_desc = ''.join(skill_data['writable'][1]) or skill_info.get("description", "")
     
@@ -734,7 +734,7 @@ def update_skill(saved_skills, character, skill_to_edit, skill_info, skill_data)
 
 
 def add_new_skill(saved_skills, character):
-    """Create and add a completely new skill"""
+    # Create and add a completely new skill
     skill_data = menu(
         ["Skill Name", "Skill Description", "Skill Effect", "Effect Strength", 
          "Skill Target", "Level Requirement", "Max Skill Level", "Save Skill", "Return"],
@@ -774,7 +774,7 @@ def add_new_skill(saved_skills, character):
 
 
 def get_prerequisites(saved_skills, current_skill_name):
-    """Let user select prerequisite skills"""
+    # Let user select prerequisite skills
     if not saved_skills:
         return []
     
@@ -811,7 +811,7 @@ def get_prerequisites(saved_skills, current_skill_name):
 
 
 def create_skill_dict(skill_data, skill_desc):
-    """Create a skill dictionary from menu data"""
+    # Create a skill dictionary from menu data
     return {
         "description": skill_desc,
         "effect": skill_data['toggles'][2],
@@ -824,10 +824,10 @@ def create_skill_dict(skill_data, skill_desc):
 
 
 def handle_remove_skill(character, saved_skills):
-    """Remove a skill from character with dependency checking"""
+    # Remove a skill from character with dependency checking
     
     def check_dependents(skill_to_remove, character, saved_skills):
-        """Inner function to check if other skills depend on this one"""
+        # Inner function to check if other skills depend on this one
         dependents = []
         for skill in character["skills"]:
             if skill == skill_to_remove:
@@ -878,7 +878,7 @@ def handle_remove_skill(character, saved_skills):
 
 
 def handle_view_skills(saved_skills, character):
-    """View all of character's current skills with detailed information"""
+    # View all of character's current skills with detailed information
     print(f"\n{'='*70}")
     print(f"{character['name']}'s Skills")
     print(f"{'='*70}")
@@ -908,7 +908,7 @@ def handle_view_skills(saved_skills, character):
 
 
 def display_skill_info(saved_skills, skill_name, character):
-    """Display detailed information about a specific skill"""
+    # Display detailed information about a specific skill
     skill_info = saved_skills.get(skill_name, {})
     skill_level = character.get("skill_levels", {}).get(skill_name, 1)
     max_level = skill_info.get("max_level", 10)

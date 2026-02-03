@@ -3,10 +3,8 @@
 from menu import menu
 
 def attribute_menu(characters, selected_character):
-    """
-    Main attribute management menu
-    Returns: (characters, selected_character) tuple
-    """
+    # Main attribute management menu
+    # Returns: (characters, selected_character) tuple
     
     # If no character selected, let user select one
     if selected_character == "":
@@ -76,7 +74,7 @@ def attribute_menu(characters, selected_character):
 
 
 def modify_level(characters, char_index):
-    """Modify character level"""
+    # Modify character level
     current_level = characters[char_index].get("level", 1)
     
     import os
@@ -101,7 +99,7 @@ def modify_level(characters, char_index):
 
 
 def modify_attribute(characters, char_index, attr_index, attr_name):
-    """Modify a specific attribute in the base_attributes list"""
+    # Modify a specific attribute in the base_attributes list
     # Ensure base_attributes list exists and has enough elements
     if "base_attributes" not in characters[char_index]:
         characters[char_index]["base_attributes"] = [5, 5, 5, 5, 5]
@@ -126,7 +124,9 @@ def modify_attribute(characters, char_index, attr_index, attr_name):
     try:
         new_value = int(input("> "))
         if -100 <= new_value <= 100:
-            characters[char_index]["base_attributes"][attr_index] = new_value * 10
+            characters = list(characters)
+            characters[char_index]["base_attributes"][attr_index] = new_value
+            characters = tuple(characters)
             print(f"\n✓ Base {attr_name} updated to {new_value}!")
         else:
             print("\n✗ Value must be between -100 and 100!")

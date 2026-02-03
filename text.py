@@ -19,6 +19,3 @@ def bubble(string, width=100, speed=.04):
         sys.stdout.write("\n")
     sys.stdout.write("\033[1B\r") 
     input("Press Enter to continue...")
-
-# HOW TO USE:
-# you literally just input a string in the function while calling it and it makes it look fancy

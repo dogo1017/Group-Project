@@ -1,6 +1,5 @@
 def add_menu(characters, classes, races, items): 
     from menu import menu
-    import text
     import os
     os.system('cls')
     result = menu(["Name", "Class", "Level", "Race", "Attributes", " Damage", " Dexterity", " Intellegence", " Constitution", " Charisma", "Skills", " Fireball", " Heal", " Shield", "Inventory", " Iron Sword", " Dagger", " Wizard Staff", " Heavy Armor", " Silver Amulet", "Return", "Return Without Saving"],
@@ -61,7 +60,9 @@ def add_menu(characters, classes, races, items):
             "inventory": initial_inventory  # List of item names
         }
         
+        characters = list(characters)
         characters.append(new_character)
+        characters = tuple(characters)
         
         print(f"\nCharacter '{new_character['name']}' created successfully!")
         print(f"Level: {new_character['level']}")

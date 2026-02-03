@@ -75,7 +75,7 @@ def remove_items(characters, selected_character):
 
 
 def view_inventory(characters, selected_character):
-    """View all inventory items for the character"""
+    # View all inventory items for the character
     # Find the character object
     current_character = None
     for char in characters:
@@ -90,11 +90,20 @@ def view_inventory(characters, selected_character):
     
     print(f"\n{current_character['name']}'s Inventory:")
     if "inventory" in current_character and current_character["inventory"]:
+        total_weight = 0
+        total_value = 0
         for item in current_character["inventory"]:
             print(f"\n  {item['name']}")
             for key, value in item.items():
                 if key != "name":
                     print(f"    {key}: {value}")
+            # Track totals
+            if "weight" in item:
+                total_weight += item["weight"]
+            if "value" in item:
+                total_value += item["value"]
+        print(f"\n  Total Weight: {total_weight} lbs")
+        print(f"  Total Value: {total_value} gold")
     else:
         print("  No items yet!")
     input("\nPress Enter to continue...")
