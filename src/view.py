@@ -1,5 +1,5 @@
 def view_menu(characters, selected_character, classes, races, items):
-    import selecter
+    import selecter as selecter
     import os
 
     def apply_multipliers(attributes, source):

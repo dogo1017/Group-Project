@@ -6,7 +6,7 @@ import os
 class DataVisualization:
 
     def __init__(self):
-        self.output_folder = "charts"
+        self.output_folder = "docs\\charts"
         if not os.path.exists(self.output_folder):
             os.makedirs(self.output_folder)
 

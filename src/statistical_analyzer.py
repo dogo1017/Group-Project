@@ -5,7 +5,7 @@ import os
 class StatisticalAnalyzer:
 
     def __init__(self):
-        self.output_folder = "exports"
+        self.output_folder = "docs\\exports"
         if not os.path.exists(self.output_folder):
             os.makedirs(self.output_folder)
 

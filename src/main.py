@@ -1,16 +1,16 @@
 # Main run file. Holds the user interface
-import add_character
-import attribute_manager
-import inventory_manager
-import selecter
-import skill_manager
-import view
+import add_character as add_character
+import attribute_manager as attribute_manager
+import inventory_manager as inventory_manager
+import selecter as selecter
+import skill_manager as skill_manager
+import view as view
 from menu import menu    
-import text
+import text as text
 import os
-import data_visualization
-import statistical_analyzer
-import random_generator
+import data_visualization as data_visualization
+import statistical_analyzer as statistical_analyzer
+import random_generator as random_generator
 
 
 def visualization_menu(characters, visualizer):
